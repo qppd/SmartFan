@@ -22,23 +22,28 @@ SmartFan is an IoT-based Android application that allows users to monitor and co
 - **Manual Control:** Users can set fan speed via a slider when in manual mode.
 - **Auto Mode:** Toggle to let the system automatically adjust fan speed based on temperature thresholds.
 
-### 4. **Settings**
+
+### 4. **Settings & Device Management**
 - Light and dark mode toggle for personalized appearance.
-- Set temperature thresholds for auto mode.
-- Manage linked devices (rename, unlink).
-- Account management (logout, change password).
+- Set temperature thresholds for auto mode (with validation).
+- Manage linked devices (view, rename, unlink) from both Settings and Dashboard.
+- Account management (logout).
 
-### 5. **History & Logs** (Planned)
-- View historical temperature and fan speed logs.
-- Visualize data with charts.
-- Delete logs as needed.
 
-### 6. **Notifications** (Planned)
-- Push notifications for temperature threshold alerts and device status changes.
+### 5. **History & Logs**
+- View historical temperature and fan speed logs (last 50 entries).
+- Simple list view for quick review.
+
+
+### 6. **Notifications**
+- Push notifications via Firebase Cloud Messaging (FCM).
+- App receives and displays alerts (e.g., temperature threshold exceeded).
+- Each user's FCM token is saved to the database for targeted notifications.
+
 
 ### 7. **Security**
 - Firebase security rules restrict data access to authenticated users and device owners.
-- Input validation throughout the app.
+- Input validation throughout the app (including temperature thresholds).
 
 ---
 
@@ -92,6 +97,7 @@ SmartFan is an IoT-based Android application that allows users to monitor and co
 
 ## Development Progress
 
+
 ### ✅ Authentication Flow
 - Login and registration screens with validation.
 - Only authenticated users can access the dashboard.
@@ -105,14 +111,15 @@ SmartFan is an IoT-based Android application that allows users to monitor and co
 - Animated gauge (SpeedView) for temperature.
 - Manual and auto fan speed controls.
 
-### ⏳ Settings
-- UI and logic for theme and temperature thresholds (to be implemented).
+### ✅ Settings & Device Management
+- Theme toggle, temperature thresholds, and device management (view, rename, unlink) fully implemented.
 
-### ⏳ History/Logs
-- Planned: View and manage temperature/fan speed logs.
+### ✅ History/Logs
+- View recent temperature and fan speed logs for the device.
 
-### ⏳ Notifications
-- Planned: Push notifications for alerts.
+### ✅ Notifications
+- Receive push notifications for alerts (FCM integration complete).
+- FCM token is saved for each user for backend/ESP32 targeting.
 
 ---
 
