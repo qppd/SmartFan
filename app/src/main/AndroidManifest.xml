@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+    <activity android:name="com.qppd.smartfan.device.DeviceLinkActivity" />
     </application>
 
 </manifest>

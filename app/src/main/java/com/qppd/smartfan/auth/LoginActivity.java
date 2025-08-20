@@ -61,9 +61,27 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, com.qppd.smartfan.MainActivity.class));
-                        finish();
+                        // Check if user has linked devices
+                        com.google.firebase.database.DatabaseReference dbRef = com.google.firebase.database.FirebaseDatabase.getInstance().getReference();
+                        String uid = mAuth.getCurrentUser().getUid();
+                        dbRef.child("users").child(uid).child("devices").addListenerForSingleValueEvent(new com.google.firebase.database.ValueEventListener() {
+                            @Override
+                            public void onDataChange(com.google.firebase.database.DataSnapshot snapshot) {
+                                if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(LoginActivity.this, com.qppd.smartfan.MainActivity.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "No device linked. Please link a device.", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(LoginActivity.this, com.qppd.smartfan.device.DeviceLinkActivity.class));
+                                    finish();
+                                }
+                            }
+                            @Override
+                            public void onCancelled(com.google.firebase.database.DatabaseError error) {
+                                Toast.makeText(LoginActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
                     } else {
                         Toast.makeText(LoginActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
