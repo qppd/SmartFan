@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme - Dark Mode -->
-    <style name="Theme.SmartFan" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.SmartFan" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color: Cool blue/teal -->
         <item name="colorPrimary">@color/primary_blue_light</item>
         <item name="colorPrimaryVariant">@color/primary_blue</item>
@@ -14,6 +14,7 @@
         <!-- Surface colors -->
         <item name="colorSurface">@color/card_background_dark</item>
         <item name="colorOnSurface">@color/neutral_light</item>
+        <item name="colorOnSurfaceVariant">@color/neutral_medium</item>
         
         <!-- Background colors -->
         <item name="android:colorBackground">@color/neutral_dark</item>
@@ -30,6 +31,11 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
     
+    <!-- Base SmartFan style -->
+    <style name="SmartFan">
+        <!-- Base style for SmartFan components -->
+    </style>
+    
     <!-- Card Styles for Dark Mode -->
     <style name="SmartFan.Card" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">12dp</item>
@@ -39,18 +45,26 @@
     </style>
     
     <!-- Text Styles for Dark Mode -->
-    <style name="SmartFan.Text.Headline" parent="TextAppearance.MaterialComponents.Headline5">
+    <style name="SmartFan.Text">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/neutral_light</item>
+    </style>
+    
+    <style name="SmartFan.Text.Headline">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/neutral_light</item>
+        <item name="android:textSize">20sp</item>
     </style>
     
-    <style name="SmartFan.Text.Body" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="SmartFan.Text.Body">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/neutral_light</item>
+        <item name="android:textSize">16sp</item>
     </style>
     
-    <style name="SmartFan.Text.Caption" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="SmartFan.Text.Caption">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/neutral_medium</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

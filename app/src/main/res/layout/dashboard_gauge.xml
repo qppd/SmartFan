@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="25"
                 android:textSize="48sp"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="@color/neutral_dark"
                 android:fontFamily="sans-serif-light" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:text="°C"
                 android:textSize="18sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textColor="@color/neutral_medium"
                 android:fontFamily="sans-serif" />
 
         </LinearLayout>
